@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="~/site/index.aspx" title="Home"  description="Homepage">
+
+		<siteMapNode url="~/site/event-detail.aspx" title="On Going Events" description="On Going Events"/>
+		<siteMapNode url="~/site/event-show.aspx" title="Upcoming / Past Events" description="Events" />
+		<siteMapNode url="~/site/venue-rent.aspx" title="Venue" description="Venue" />
+		<siteMapNode url="~/site/account-profile.aspx" title="Profile"  description="Profile" >
+			<siteMapNode url="~/site/ticket-history.aspx" title="Ticket History"  description="Ticket History" />
+		</siteMapNode>
+	</siteMapNode>
+</siteMap>

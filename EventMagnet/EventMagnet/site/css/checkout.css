@@ -1,0 +1,270 @@
+﻿/* START checkout section */
+.checkout-container .title {
+    margin-bottom: 5vh;
+}
+
+.checkout-container .card {
+    margin: auto;
+    margin-bottom: 40px;
+    max-width: 1300px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+}
+
+@media(max-width:767px) {
+    .checkout-container .card {
+        margin: 3vh auto;
+    }
+}
+
+.checkout-container .cart {
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+@media(max-width:767px) {
+    .checkout-container .cart {
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+
+.checkout-container .summary {
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+}
+
+@media(max-width:767px) {
+    .checkout-container .summary {
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 1rem;
+    }
+}
+
+.checkout-container .summary .col-2 {
+    padding: 0;
+}
+
+.checkout-container .summary .col-10 {
+    padding: 0;
+}
+
+.checkout-container .row {
+    margin: 0;
+}
+
+.checkout-container .title b {
+    font-size: 1.5rem;
+}
+
+.checkout-container .main {
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+
+.checkout-container .col-2,
+.checkout-container .col {
+    padding: 0 1vh;
+}
+
+.checkout-container a {
+    padding: 0 1vh;
+}
+
+.checkout-container .close {
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+
+.checkout-container img {
+    width: 3.5rem;
+}
+
+.checkout-container .back-to-shop {
+    margin-top: 4.5rem;
+}
+
+.checkout-container h5 {
+    margin-top: 4vh;
+}
+
+.checkout-container hr {
+    margin-top: 1.25rem;
+}
+
+.checkout-container form {
+    padding: 2vh 0;
+}
+
+.checkout-container select {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+
+.checkout-container input {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+
+.checkout-container input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.checkout-container .btn {
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+
+    .checkout-container .btn:focus {
+        box-shadow: none;
+        outline: none;
+        box-shadow: none;
+        color: white;
+        -webkit-box-shadow: none;
+        -webkit-user-select: none;
+        transition: none;
+    }
+
+    .checkout-container .btn:hover {
+        color: white;
+    }
+
+.checkout-container a {
+    color: black;
+}
+
+    .checkout-container a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.checkout-container #code {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+/* END checkout section */
+
+
+/* START multi step progress bar */
+.checkout-container .stepper-wrapper {
+    font-family: Arial;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkout-container .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    
+}
+
+@media (max-width: 768px) {
+    .checkout-container .stepper-item {
+    
+
+    font-size: 12px;
+}
+}
+
+.checkout-container .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+}
+
+.checkout-container .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+}
+
+.checkout-container .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+}
+
+.checkout-container .stepper-item.completed {
+    font-weight: bold;
+}
+
+    .checkout-container .stepper-item.completed .step-counter {
+        background-color: #7c838b;
+    }
+
+    .checkout-container .stepper-item.completed::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #7c838b;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 3;
+    }
+
+.checkout-container .stepper-item:first-child::before {
+    content: none;
+}
+
+.checkout-container .stepper-item:last-child::after {
+    content: none;
+}
+
+/* END multi step progress bar */
+
+
+.checkout-container .btn-add-minus {
+    max-width: 35px;
+    max-height: 35px;
+    margin: 0px 5px;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EventMagnetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="birthdate" Type="date" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ic_no" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="address_one" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address_two" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="72" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="billing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="organization_id" Type="int" Nullable="false" />
+          <Property Name="organization_payment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cust_order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="customer_id" Type="int" Nullable="false" />
+          <Property Name="customer_payment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="birthdate" Type="date" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ic_no" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="address_one" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address_two" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="72" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer_payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payment_method" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="payment_fee" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="fpx_bank_name" Type="varchar" MaxLength="50" />
+          <Property Name="card_number" Type="varchar" MaxLength="4" />
+          <Property Name="tng_number" Type="varchar" MaxLength="15" />
+          <Property Name="paypal_email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="start_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="end_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ticket_sale_start_datetime" Type="datetime" Nullable="false" />
+          <Property Name="ticket_sale_end_datetime" Type="datetime" Nullable="false" />
+          <Property Name="descp" Type="varchar" MaxLength="1000" />
+          <Property Name="keyword" Type="varchar" MaxLength="200" />
+          <Property Name="category_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="organization_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event_venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="book_date" Type="date" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="venue_id" Type="int" Nullable="false" />
+          <Property Name="event_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="newsletter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="body" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="organization_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="cust_order_id" Type="int" Nullable="false" />
+          <Property Name="ticket_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="descp" Type="varchar" MaxLength="1000" />
+          <Property Name="website_link" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="address_one" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address_two" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" />
+          <Property Name="collection_id_billplz" Type="varchar" MaxLength="8" />
+          <Property Name="collection_id_toyyibpay" Type="varchar" MaxLength="8" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="is_owner" Type="tinyint" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="admin_id" Type="int" Nullable="false" />
+          <Property Name="organization_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization_payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payment_method" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="payment_fee" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="fpx_bank_name" Type="varchar" MaxLength="50" />
+          <Property Name="card_number" Type="varchar" MaxLength="4" />
+          <Property Name="tng_number" Type="varchar" MaxLength="15" />
+          <Property Name="paypal_email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="total_qty" Type="int" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="event_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="descp" Type="varchar" MaxLength="1000" />
+          <Property Name="address" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="phone_contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email_contact" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="img_src" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_billing_organization_id">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="billing" Type="Self.billing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billing">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_billing_organization_payment_id">
+          <End Role="organization_payment" Type="Self.organization_payment" Multiplicity="1" />
+          <End Role="billing" Type="Self.billing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization_payment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billing">
+              <PropertyRef Name="organization_payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cust_order_customer_id">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="cust_order" Type="Self.cust_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cust_order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cust_order_customer_payment_id">
+          <End Role="customer_payment" Type="Self.customer_payment" Multiplicity="1" />
+          <End Role="cust_order" Type="Self.cust_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer_payment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cust_order">
+              <PropertyRef Name="customer_payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_organization_id">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="event" Type="Self.event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_venue_event_id">
+          <End Role="event" Type="Self.event" Multiplicity="1" />
+          <End Role="event_venue" Type="Self.event_venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event_venue">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_venue_venue_id">
+          <End Role="venue" Type="Self.venue" Multiplicity="1" />
+          <End Role="event_venue" Type="Self.event_venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event_venue">
+              <PropertyRef Name="venue_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newsletter_organization_id">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="newsletter" Type="Self.newsletter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="newsletter">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_cust_order_id">
+          <End Role="cust_order" Type="Self.cust_order" Multiplicity="1" />
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cust_order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="cust_order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_ticket_id">
+          <End Role="ticket" Type="Self.ticket" Multiplicity="1" />
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ticket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="ticket_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_organization_admin_admin_id">
+          <End Role="admin" Type="Self.admin" Multiplicity="1" />
+          <End Role="organization_admin" Type="Self.organization_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="organization_admin">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_organization_admin_organization_id">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="organization_admin" Type="Self.organization_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="organization_admin">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ticket_event_id">
+          <End Role="event" Type="Self.event" Multiplicity="1" />
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventMagnetModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="billing" EntityType="Self.billing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cust_order" EntityType="Self.cust_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer_payment" EntityType="Self.customer_payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event" EntityType="Self.event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event_venue" EntityType="Self.event_venue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newsletter" EntityType="Self.newsletter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="organization" EntityType="Self.organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="organization_admin" EntityType="Self.organization_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="organization_payment" EntityType="Self.organization_payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ticket" EntityType="Self.ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="venue" EntityType="Self.venue" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_billing_organization_id" Association="Self.FK_billing_organization_id">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="billing" EntitySet="billing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_billing_organization_payment_id" Association="Self.FK_billing_organization_payment_id">
+            <End Role="organization_payment" EntitySet="organization_payment" />
+            <End Role="billing" EntitySet="billing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cust_order_customer_id" Association="Self.FK_cust_order_customer_id">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="cust_order" EntitySet="cust_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cust_order_customer_payment_id" Association="Self.FK_cust_order_customer_payment_id">
+            <End Role="customer_payment" EntitySet="customer_payment" />
+            <End Role="cust_order" EntitySet="cust_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_organization_id" Association="Self.FK_event_organization_id">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="event" EntitySet="event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_venue_event_id" Association="Self.FK_event_venue_event_id">
+            <End Role="event" EntitySet="event" />
+            <End Role="event_venue" EntitySet="event_venue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_venue_venue_id" Association="Self.FK_event_venue_venue_id">
+            <End Role="venue" EntitySet="venue" />
+            <End Role="event_venue" EntitySet="event_venue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newsletter_organization_id" Association="Self.FK_newsletter_organization_id">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="newsletter" EntitySet="newsletter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_cust_order_id" Association="Self.FK_order_item_cust_order_id">
+            <End Role="cust_order" EntitySet="cust_order" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_ticket_id" Association="Self.FK_order_item_ticket_id">
+            <End Role="ticket" EntitySet="ticket" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_organization_admin_admin_id" Association="Self.FK_organization_admin_admin_id">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="organization_admin" EntitySet="organization_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_organization_admin_organization_id" Association="Self.FK_organization_admin_organization_id">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="organization_admin" EntitySet="organization_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ticket_event_id" Association="Self.FK_ticket_event_id">
+            <End Role="event" EntitySet="event" />
+            <End Role="ticket" EntitySet="ticket" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventMagnetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ic_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_one" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_two" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="72" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="organization_admin" Relationship="Self.FK_organization_admin_admin_id" FromRole="admin" ToRole="organization_admin" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ic_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_one" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_two" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="72" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="cust_order" Relationship="EventMagnetModel.FK_cust_order_customer_id" FromRole="customer" ToRole="cust_order" />
+        </EntityType>
+        <EntityType Name="customer_payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payment_method" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payment_fee" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="fpx_bank_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="card_number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="tng_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="paypal_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cust_order" Relationship="EventMagnetModel.FK_cust_order_customer_payment_id" FromRole="customer_payment" ToRole="cust_order" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ticket_sale_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ticket_sale_end_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="descp" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="keyword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="organization_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="event_venue" Relationship="Self.FK_event_venue_event_id" FromRole="event" ToRole="event_venue" />
+          <NavigationProperty Name="tickets" Relationship="Self.FK_ticket_event_id" FromRole="event" ToRole="ticket" />
+          <NavigationProperty Name="organization" Relationship="EventMagnetModel.FK_event_organization_id" FromRole="event" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="event_venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="venue_id" Type="Int32" Nullable="false" />
+          <Property Name="event_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="event" Relationship="Self.FK_event_venue_event_id" FromRole="event_venue" ToRole="event" />
+          <NavigationProperty Name="venue" Relationship="Self.FK_event_venue_venue_id" FromRole="event_venue" ToRole="venue" />
+        </EntityType>
+        <EntityType Name="newsletter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="body" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="organization_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="organization" Relationship="EventMagnetModel.FK_newsletter_organization_id" FromRole="newsletter" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="organization_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="is_owner" Type="Byte" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="admin_id" Type="Int32" Nullable="false" />
+          <Property Name="organization_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="admin" Relationship="Self.FK_organization_admin_admin_id" FromRole="organization_admin" ToRole="admin" />
+          <NavigationProperty Name="organization" Relationship="EventMagnetModel.FK_organization_admin_organization_id" FromRole="organization_admin" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="organization_payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payment_method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payment_fee" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="fpx_bank_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="card_number" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="tng_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="paypal_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="billings1" Relationship="EventMagnetModel.FK_billing_organization_payment_id1" FromRole="organization_payment" ToRole="billing1" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="total_qty" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="event_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="event" Relationship="Self.FK_ticket_event_id" FromRole="ticket" ToRole="event" />
+          <NavigationProperty Name="order_item1" Relationship="EventMagnetModel.FK_order_item_ticket_id1" FromRole="ticket" ToRole="order_item1" />
+        </EntityType>
+        <EntityType Name="venue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descp" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone_contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_contact" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="event_venue" Relationship="Self.FK_event_venue_venue_id" FromRole="venue" ToRole="event_venue" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_organization_admin_admin_id">
+          <End Role="admin" Type="Self.admin" Multiplicity="1" />
+          <End Role="organization_admin" Type="Self.organization_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="organization_admin">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_venue_event_id">
+          <End Role="event" Type="Self.event" Multiplicity="1" />
+          <End Role="event_venue" Type="Self.event_venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event_venue">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ticket_event_id">
+          <End Role="event" Type="Self.event" Multiplicity="1" />
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="event_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_venue_venue_id">
+          <End Role="venue" Type="Self.venue" Multiplicity="1" />
+          <End Role="event_venue" Type="Self.event_venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venue">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event_venue">
+              <PropertyRef Name="venue_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventMagnetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="customer_payment" EntityType="Self.customer_payment" />
+          <EntitySet Name="events" EntityType="Self.event" />
+          <EntitySet Name="event_venue" EntityType="Self.event_venue" />
+          <EntitySet Name="newsletters" EntityType="Self.newsletter" />
+          <EntitySet Name="organization_admin" EntityType="Self.organization_admin" />
+          <EntitySet Name="organization_payment" EntityType="Self.organization_payment" />
+          <EntitySet Name="tickets" EntityType="Self.ticket" />
+          <EntitySet Name="venues" EntityType="Self.venue" />
+          <AssociationSet Name="FK_organization_admin_admin_id" Association="Self.FK_organization_admin_admin_id">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="organization_admin" EntitySet="organization_admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_venue_event_id" Association="Self.FK_event_venue_event_id">
+            <End Role="event" EntitySet="events" />
+            <End Role="event_venue" EntitySet="event_venue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ticket_event_id" Association="Self.FK_ticket_event_id">
+            <End Role="event" EntitySet="events" />
+            <End Role="ticket" EntitySet="tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_venue_venue_id" Association="Self.FK_event_venue_venue_id">
+            <End Role="venue" EntitySet="venues" />
+            <End Role="event_venue" EntitySet="event_venue" />
+          </AssociationSet>
+          <EntitySet Name="billings" EntityType="EventMagnetModel.billing" />
+          <EntitySet Name="order_item" EntityType="EventMagnetModel.order_item" />
+          <AssociationSet Name="FK_billing_organization_payment_id1" Association="EventMagnetModel.FK_billing_organization_payment_id1">
+            <End Role="organization_payment" EntitySet="organization_payment" />
+            <End Role="billing1" EntitySet="billings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_ticket_id1" Association="EventMagnetModel.FK_order_item_ticket_id1">
+            <End Role="ticket" EntitySet="tickets" />
+            <End Role="order_item1" EntitySet="order_item" />
+          </AssociationSet>
+          <EntitySet Name="cust_order" EntityType="EventMagnetModel.cust_order" />
+          <AssociationSet Name="FK_cust_order_customer_id" Association="EventMagnetModel.FK_cust_order_customer_id">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="cust_order" EntitySet="cust_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cust_order_customer_payment_id" Association="EventMagnetModel.FK_cust_order_customer_payment_id">
+            <End Role="customer_payment" EntitySet="customer_payment" />
+            <End Role="cust_order" EntitySet="cust_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_cust_order_id" Association="EventMagnetModel.FK_order_item_cust_order_id">
+            <End Role="cust_order" EntitySet="cust_order" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <EntitySet Name="organizations" EntityType="EventMagnetModel.organization" />
+          <AssociationSet Name="FK_billing_organization_id" Association="EventMagnetModel.FK_billing_organization_id">
+            <End Role="organization" EntitySet="organizations" />
+            <End Role="billing" EntitySet="billings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_event_organization_id" Association="EventMagnetModel.FK_event_organization_id">
+            <End Role="organization" EntitySet="organizations" />
+            <End Role="event" EntitySet="events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newsletter_organization_id" Association="EventMagnetModel.FK_newsletter_organization_id">
+            <End Role="organization" EntitySet="organizations" />
+            <End Role="newsletter" EntitySet="newsletters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_organization_admin_organization_id" Association="EventMagnetModel.FK_organization_admin_organization_id">
+            <End Role="organization" EntitySet="organizations" />
+            <End Role="organization_admin" EntitySet="organization_admin" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="billing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uuid" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="organization_id" Type="Int32" Nullable="false" />
+          <Property Name="organization_payment_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="organization_payment" Relationship="EventMagnetModel.FK_billing_organization_payment_id1" FromRole="billing1" ToRole="organization_payment" />
+          <NavigationProperty Name="organization" Relationship="EventMagnetModel.FK_billing_organization_id" FromRole="billing" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="order_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uuid" Type="Guid" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="cust_order_id" Type="Int32" Nullable="false" />
+          <Property Name="ticket_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ticket" Relationship="EventMagnetModel.FK_order_item_ticket_id1" FromRole="order_item1" ToRole="ticket" />
+          <NavigationProperty Name="cust_order" Relationship="EventMagnetModel.FK_order_item_cust_order_id" FromRole="order_item" ToRole="cust_order" />
+        </EntityType>
+        <Association Name="FK_billing_organization_payment_id1">
+          <End Type="EventMagnetModel.organization_payment" Role="organization_payment" Multiplicity="1" />
+          <End Type="EventMagnetModel.billing" Role="billing1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization_payment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billing1">
+              <PropertyRef Name="organization_payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_ticket_id1">
+          <End Type="EventMagnetModel.ticket" Role="ticket" Multiplicity="1" />
+          <End Type="EventMagnetModel.order_item" Role="order_item1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ticket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_item1">
+              <PropertyRef Name="ticket_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="cust_order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uuid" Type="Guid" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
+          <Property Name="customer_payment_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="EventMagnetModel.FK_cust_order_customer_id" FromRole="cust_order" ToRole="customer" />
+          <NavigationProperty Name="customer_payment" Relationship="EventMagnetModel.FK_cust_order_customer_payment_id" FromRole="cust_order" ToRole="customer_payment" />
+          <NavigationProperty Name="order_item" Relationship="EventMagnetModel.FK_order_item_cust_order_id" FromRole="cust_order" ToRole="order_item" />
+        </EntityType>
+        <Association Name="FK_cust_order_customer_id">
+          <End Type="EventMagnetModel.customer" Role="customer" Multiplicity="1" />
+          <End Type="EventMagnetModel.cust_order" Role="cust_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cust_order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cust_order_customer_payment_id">
+          <End Type="EventMagnetModel.customer_payment" Role="customer_payment" Multiplicity="1" />
+          <End Type="EventMagnetModel.cust_order" Role="cust_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer_payment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cust_order">
+              <PropertyRef Name="customer_payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_cust_order_id">
+          <End Type="EventMagnetModel.cust_order" Role="cust_order" Multiplicity="1" />
+          <End Type="EventMagnetModel.order_item" Role="order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cust_order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="cust_order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="descp" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="website_link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="address_one" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address_two" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="postcode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="img_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="collection_id_billplz" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="collection_id_toyyibpay" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="billings" Relationship="EventMagnetModel.FK_billing_organization_id" FromRole="organization" ToRole="billing" />
+          <NavigationProperty Name="events" Relationship="EventMagnetModel.FK_event_organization_id" FromRole="organization" ToRole="event" />
+          <NavigationProperty Name="newsletters" Relationship="EventMagnetModel.FK_newsletter_organization_id" FromRole="organization" ToRole="newsletter" />
+          <NavigationProperty Name="organization_admin" Relationship="EventMagnetModel.FK_organization_admin_organization_id" FromRole="organization" ToRole="organization_admin" />
+        </EntityType>
+        <Association Name="FK_billing_organization_id">
+          <End Type="EventMagnetModel.organization" Role="organization" Multiplicity="1" />
+          <End Type="EventMagnetModel.billing" Role="billing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billing">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_event_organization_id">
+          <End Type="EventMagnetModel.organization" Role="organization" Multiplicity="1" />
+          <End Type="EventMagnetModel.event" Role="event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="event">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newsletter_organization_id">
+          <End Type="EventMagnetModel.organization" Role="organization" Multiplicity="1" />
+          <End Type="EventMagnetModel.newsletter" Role="newsletter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="newsletter">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_organization_admin_organization_id">
+          <End Type="EventMagnetModel.organization" Role="organization" Multiplicity="1" />
+          <End Type="EventMagnetModel.organization_admin" Role="organization_admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="organization_admin">
+              <PropertyRef Name="organization_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EventMagnetModelStoreContainer" CdmEntityContainer="EventMagnetEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="EventMagnetModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="ic_no" ColumnName="ic_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address_one" ColumnName="address_one" />
+                <ScalarProperty Name="address_two" ColumnName="address_two" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="EventMagnetModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="ic_no" ColumnName="ic_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address_one" ColumnName="address_one" />
+                <ScalarProperty Name="address_two" ColumnName="address_two" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer_payment">
+            <EntityTypeMapping TypeName="EventMagnetModel.customer_payment">
+              <MappingFragment StoreEntitySet="customer_payment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="payment_fee" ColumnName="payment_fee" />
+                <ScalarProperty Name="fpx_bank_name" ColumnName="fpx_bank_name" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="tng_number" ColumnName="tng_number" />
+                <ScalarProperty Name="paypal_email" ColumnName="paypal_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="EventMagnetModel.event">
+              <MappingFragment StoreEntitySet="event">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="ticket_sale_start_datetime" ColumnName="ticket_sale_start_datetime" />
+                <ScalarProperty Name="ticket_sale_end_datetime" ColumnName="ticket_sale_end_datetime" />
+                <ScalarProperty Name="descp" ColumnName="descp" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_venue">
+            <EntityTypeMapping TypeName="EventMagnetModel.event_venue">
+              <MappingFragment StoreEntitySet="event_venue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="book_date" ColumnName="book_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="venue_id" ColumnName="venue_id" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newsletters">
+            <EntityTypeMapping TypeName="EventMagnetModel.newsletter">
+              <MappingFragment StoreEntitySet="newsletter">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organization_admin">
+            <EntityTypeMapping TypeName="EventMagnetModel.organization_admin">
+              <MappingFragment StoreEntitySet="organization_admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="is_owner" ColumnName="is_owner" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organization_payment">
+            <EntityTypeMapping TypeName="EventMagnetModel.organization_payment">
+              <MappingFragment StoreEntitySet="organization_payment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="payment_fee" ColumnName="payment_fee" />
+                <ScalarProperty Name="fpx_bank_name" ColumnName="fpx_bank_name" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="tng_number" ColumnName="tng_number" />
+                <ScalarProperty Name="paypal_email" ColumnName="paypal_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tickets">
+            <EntityTypeMapping TypeName="EventMagnetModel.ticket">
+              <MappingFragment StoreEntitySet="ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="total_qty" ColumnName="total_qty" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venues">
+            <EntityTypeMapping TypeName="EventMagnetModel.venue">
+              <MappingFragment StoreEntitySet="venue">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="descp" ColumnName="descp" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_contact" ColumnName="phone_contact" />
+                <ScalarProperty Name="email_contact" ColumnName="email_contact" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="billings">
+            <EntityTypeMapping TypeName="EventMagnetModel.billing">
+              <MappingFragment StoreEntitySet="billing">
+                <ScalarProperty Name="organization_payment_id" ColumnName="organization_payment_id" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="uuid" ColumnName="uuid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_item">
+            <EntityTypeMapping TypeName="EventMagnetModel.order_item">
+              <MappingFragment StoreEntitySet="order_item">
+                <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+                <ScalarProperty Name="cust_order_id" ColumnName="cust_order_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="uuid" ColumnName="uuid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cust_order">
+            <EntityTypeMapping TypeName="EventMagnetModel.cust_order">
+              <MappingFragment StoreEntitySet="cust_order">
+                <ScalarProperty Name="customer_payment_id" ColumnName="customer_payment_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="uuid" ColumnName="uuid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organizations">
+            <EntityTypeMapping TypeName="EventMagnetModel.organization">
+              <MappingFragment StoreEntitySet="organization">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="collection_id_toyyibpay" ColumnName="collection_id_toyyibpay" />
+                <ScalarProperty Name="collection_id_billplz" ColumnName="collection_id_billplz" />
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="address_two" ColumnName="address_two" />
+                <ScalarProperty Name="address_one" ColumnName="address_one" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="website_link" ColumnName="website_link" />
+                <ScalarProperty Name="descp" ColumnName="descp" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

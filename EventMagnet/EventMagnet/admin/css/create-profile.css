@@ -1,0 +1,9 @@
+﻿.create-profile {
+    width: 80%;
+    margin: 10px auto;
+}
+
+#saveBtn {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

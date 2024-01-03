@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="" url="#">
+    <siteMapNode url="~/admin/index.aspx" title="Dashboard" description="Event Management Dashboard" />
+	  <siteMapNode url="~/admin/organization-index.aspx" title="Organization Management" description="Organization">
+		  <siteMapNode url="~/admin/organization-setting.aspx" title="Setting" description="Organization Setting" />
+	  </siteMapNode>
+	  
+	  
+    <siteMapNode url="~/admin/customer-list.aspx" title="Customer" description="Customer"></siteMapNode>
+
+    <siteMapNode title="Event Management" url="~/admin/event-index.aspx" description="Event Management">
+    </siteMapNode>
+
+    <siteMapNode title="Venue Management" url="~/admin/event-venue-index.aspx">
+    </siteMapNode>
+
+    <siteMapNode title="Billing Management" url="~/admin/billing.aspx">
+      <!--<siteMapNode url="~/admin/billing-create.aspx" title="Billing Create" description="Billing Detail" />
+      <siteMapNode url="~/admin/billing-update.aspx" title="Billing Update" description="Billing Detail" />-->
+      <siteMapNode url="~/admin/billing-view.aspx" title="View Billing" description="Billing Detail" />
+    </siteMapNode>
+
+    <siteMapNode title="Newsletter Management" url="~/admin/newsletter-index.aspx">
+      <!--<siteMapNode url="~/admin/newsletter-create.aspx" title="Newsletter Create" description="Newsletter Detail" />
+      <siteMapNode url="~/admin/newsletter-update.aspx" title="Newsletter Update" description="Newsletter Detail" />
+      <siteMapNode url="~/admin/newsletter-view.aspx" title="Newsletter View" description="Newsletter Detail" />-->
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

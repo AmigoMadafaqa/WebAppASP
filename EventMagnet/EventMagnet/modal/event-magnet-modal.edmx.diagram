@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e30a1a45532471db43fbd99cf46bfb9" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="EventMagnetModel.admin" Width="1.5" PointX="12.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.customer" Width="1.5" PointX="3.875" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.customer_payment" Width="1.5" PointX="2" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.event" Width="1.5" PointX="8.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.event_venue" Width="1.5" PointX="12.125" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.newsletter" Width="1.5" PointX="16.125" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.organization_admin" Width="1.5" PointX="15.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.organization_payment" Width="1.5" PointX="6.375" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.ticket" Width="1.5" PointX="8.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventMagnetModel.venue" Width="1.5" PointX="11.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="EventMagnetModel.FK_organization_admin_admin_id" ManuallyRouted="false" />
+        <AssociationConnector Association="EventMagnetModel.FK_event_venue_event_id" ManuallyRouted="false" />
+        <AssociationConnector Association="EventMagnetModel.FK_ticket_event_id" ManuallyRouted="false" />
+        <AssociationConnector Association="EventMagnetModel.FK_event_venue_venue_id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EventMagnetModel.billing" Width="1.5" PointX="8.75" PointY="5.875" />
+        <EntityTypeShape EntityType="EventMagnetModel.order_item" Width="1.5" PointX="6.25" PointY="14.875" />
+        <AssociationConnector Association="EventMagnetModel.FK_billing_organization_payment_id1" />
+        <AssociationConnector Association="EventMagnetModel.FK_order_item_ticket_id1" />
+        <EntityTypeShape EntityType="EventMagnetModel.cust_order" Width="1.5" PointX="6.125" PointY="11.375" />
+        <AssociationConnector Association="EventMagnetModel.FK_cust_order_customer_id" />
+        <AssociationConnector Association="EventMagnetModel.FK_cust_order_customer_payment_id" />
+        <AssociationConnector Association="EventMagnetModel.FK_order_item_cust_order_id" />
+        <EntityTypeShape EntityType="EventMagnetModel.organization" Width="1.5" PointX="14.75" PointY="5.25" />
+        <AssociationConnector Association="EventMagnetModel.FK_billing_organization_id" />
+        <AssociationConnector Association="EventMagnetModel.FK_event_organization_id" />
+        <AssociationConnector Association="EventMagnetModel.FK_newsletter_organization_id" />
+        <AssociationConnector Association="EventMagnetModel.FK_organization_admin_organization_id" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

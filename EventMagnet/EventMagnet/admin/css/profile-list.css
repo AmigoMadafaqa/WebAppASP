@@ -1,0 +1,44 @@
+﻿.card {
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+.Viewbtn {
+    color: #17a2b8;
+    border-color: #17a2b8;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 0.375rem 0.75rem;
+    border-radius: 5px;
+}
+
+.Viewbtn:hover {
+    color: white;
+    background-color: #17a2b8;
+    border-color: white;
+}
+
+.addDiv {
+    margin: 10px;
+}
+
+.Addbtn {
+    color: #17a2b8;
+    border-color: #17a2b8;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 0.375rem 0.75rem;
+    border-radius: 5px;
+}
+
+.Addbtn:hover {
+    color: white;
+    background-color: #17a2b8;
+}

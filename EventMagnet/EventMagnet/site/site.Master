@@ -1,0 +1,265 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="EventMagnet.site.site" %>
+
+<!-- Putting Header And Footer to linked it-->
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Event Magnet, your premier partner in crafting unforgettable experiences, is an avant-garde event management company dedicated to transforming your visions into reality. With an expert team of creative minds and meticulous planners, we magnetize events with innovation, precision, and flair. Whether it's corporate gatherings, weddings, or special occasions, Event Magnet seamlessly orchestrates every detail, from conceptualization to flawless execution. Our commitment to excellence ensures that each event is a magnetic fusion of seamless coordination, exquisite design, and unparalleled entertainment. Elevate your occasions with Event Magnet, where every moment becomes a magnetic memory etched in the hearts of your guests.">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    
+    <title>Event Magnet</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/icons/evemagnet_icon.png" />
+
+    <!-- Additional CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/owl-carousel.css" rel="stylesheet" />
+    <link href="css/tooplate-artxibition.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" >
+
+    <style type="text/css">
+        .level3 {
+            background-color: white;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- 
+        <div id="js-preloader" class="js-preloader">
+             Preloader Content Here
+            <div class="preloader-inner">
+                <span class="dot"></span>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+         -->
+        <!-- Pre-header Content Here 
+        <div class="pre-header">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <span>Hey! The Show is Starting in 15 Days.</span>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="text-button">
+                            <a href="venue-rent.aspx">Contact Us Now! <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+
+        <div class="header-area header-sticky">
+            <!-- Header Content Here-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+                            <!-- ***** Logo Start ***** -->
+                            <a href="index.aspx" class="logo"><img src="images/icons/evemagnet_icon.png" style="width:80px;height:auto;"/></a>
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+
+                            <!--
+                            <ul class="nav">
+                                <li><a href="index.aspx" class="active">Home</a></li>
+                                <li><a href="about.aspx">About Us</a></li>
+                                <li><a href="venue-rent.aspx">Rent Venue</a></li>
+                                <li><a href="event-show.aspx">Shows & Events</a></li> 
+                                <li><a href="ticket.aspx">Tickets</a></li> 
+                            </ul>        
+                            -->
+
+                            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="true" StartingNodeOffset="-1" />
+
+                            <div style="display:flex;justify-content:space-between;">
+                                <div>
+                                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticDisplayLevels="2" CssClass="nav sub-menu" DisappearAfter="50">
+                                    </asp:Menu>
+                                </div>
+
+                                <% if (Session["cust"] != null)
+                                    {  %>
+                                <div class="my-3" >
+                                    <asp:HyperLink ID="lblUsername" runat="server" NavigateUrl="~/site/account-profile.aspx" ForeColor="#2A2A2A"></asp:HyperLink>
+                                    <%--<asp:Label ID="lblUsername" runat="server" Text=""></asp:Label>--%>
+                                    &nbsp;
+                                    <a href="account-profile.aspx"><asp:Image ID="ImgUpload" runat="server" style="border-radius: 50%;width:50px;height:50px;" /></a>
+                                </div>
+                                <% } else {  %>
+                                <div class="my-3">
+                                    <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="mx-1 my-1 btn btn-outline-dark" OnClick="btnLogin_Click" />
+                                    <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" CssClass="mx-1 my-1 btn btn-outline-secondary" OnClick="btnSignUp_Click" />
+                                </div>
+                                <% } %>
+                            </div>
+                            
+                            <!-- ***** Menu End ***** -->
+                            <%--<span>Login</span>--%>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content" class="">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <hr />
+
+        <!-- *** Subscribe *** -->
+       <!--<div class="subscribe">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4>Subscribe Our Newsletter:</h4>
+                    </div>
+                    <div class="col-lg-8">
+                        <form id="subscribe" action="" method="get">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <fieldset>
+                                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-3">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="main-dark-button">Submit</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <footer>
+            <!-- Footer Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="address">
+                            <h4>TAR UMT (Penang Branch) Address</h4>
+                            <span>
+                                77, Lorong Lembah Permai 3
+                                <br />
+                                11200 Tanjung Bungah
+                                <br />
+                                Pulau Pinang
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li><a href="#">Info</a></li>
+                                <li><a href="venue-rent.aspx">Venues</a></li>
+                                <li><a href="#">Guides</a></li>
+                                <li><a href="#">Videos</a></li>
+                                <li><a href="#">Outreach</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="hours">
+                            <h4>Open Hours</h4>
+                            <ul>
+                                <li>Mon to Fri: 10:00 AM to 8:00 PM</li>
+                                <li>Sat - Sun: 11:00 AM to 4:00 PM</li>
+                                <li>Holidays: Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="under-footer">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <p>Malaysia</p>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <p class="copyright">
+                                        Copyright 2023 Event Magnet Company 
+                    
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="sub-footer">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="logo"><span>EVE<em>MNT</em></span></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="menu">
+                                        <ul>
+                                            <li><a href="index.aspx" class="active">Home</a></li>
+                                            <li><a href="about.aspx">About Us</a></li>
+                                            <li><a href="venue-rent.aspx">Rent Venue</a></li>
+                                            <li><a href="event-show.aspx">Shows & Events</a></li>
+                                            <li><a href="ticket.aspx">Tickets</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="social-links">
+                                        <ul>
+                                            <li><a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a></li>
+                                            <li><a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a></li>
+                                            <li><a href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i></a></li>
+                                            <li><a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Javascript Reference -->
+        <!-- JQuery -->
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Plugins -->
+        <script src="js/scrollreveal.min.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/imgfix.min.js"></script>
+        <script src="js/mixitup.js"></script>
+        <script src="js/accordions.js"></script>
+        <script src="js/owl-carousel.js"></script>
+        <!-- Global Init -->
+        <script src="js/custom.js"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,1102 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4DC8A117-3F2C-495C-9123-82DF5F9BEA56}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EventMagnet</RootNamespace>
+    <AssemblyName>EventMagnet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44325</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="CheckoutSdk, Version=4.0.27.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CheckoutSDK.4.0.27\lib\net45\CheckoutSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=43.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.43.7.0\lib\net461\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin-access-error.aspx" />
+    <Content Include="admin\admin-forget-password.aspx" />
+    <Content Include="admin\admin-login.aspx" />
+    <Content Include="admin\admin-register.aspx" />
+    <Content Include="admin\admin-reset-password.aspx" />
+    <Content Include="admin\billing-create.aspx" />
+    <Content Include="admin\billing-payment-success.aspx" />
+    <Content Include="admin\billing-payment.aspx" />
+    <Content Include="admin\billing-update.aspx" />
+    <Content Include="admin\billing-view.aspx" />
+    <Content Include="admin\create-admin.aspx" />
+    <Content Include="admin\create-customer.aspx" />
+    <Content Include="admin\css\billing-payment-success.css" />
+    <Content Include="admin\customer-update.aspx" />
+    <Content Include="admin\customer-view.aspx" />
+    <Content Include="admin\js\desktop-noti-API.js" />
+    <Content Include="admin\organization-create.aspx" />
+    <Content Include="admin\css\create-profile.css" />
+    <Content Include="admin\css\edit-profile.css" />
+    <Content Include="admin\css\profile-list.css" />
+    <Content Include="admin\customer-list.aspx" />
+    <Content Include="admin\edit-admin-profile.aspx" />
+    <Content Include="admin\edit-customer-profile.aspx" />
+    <Content Include="admin\edit-organization-profile.aspx" />
+    <Content Include="admin\event-venue-view.aspx" />
+    <Content Include="admin\images\icons\evemagnet_icon.png" />
+    <Content Include="admin\css\account.css" />
+    <Content Include="admin\organization-index.aspx" />
+    <Content Include="admin\images\venues\TARUMT_CA_View.png" />
+    <Content Include="admin\newsletter-view.aspx" />
+    <Content Include="admin\organization-setting.aspx" />
+    <Content Include="admin\organization-update.aspx" />
+    <Content Include="admin\organization-view.aspx" />
+    <Content Include="admin\report-sale.aspx" />
+    <Content Include="error-page.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="site\account-profile-confirm.aspx" />
+    <Content Include="site\captcha.aspx" />
+    <Content Include="site\css\create-profile.css" />
+    <Content Include="site\css\profile-list.css" />
+    <Content Include="modal\event-magnet-modal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>event-magnet-modal.edmx</DependentUpon>
+      <LastGenOutput>event-magnet-modal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="modal\event-magnet-modal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>event-magnet-modal.edmx</DependentUpon>
+      <LastGenOutput>event-magnet-modal.cs</LastGenOutput>
+    </Content>
+    <Content Include="site\account-profile.aspx" />
+    <Content Include="site\event-shows-val.aspx" />
+    <Content Include="site\images\events\f89e371c2aad4bb2b227e5461844aca0.jpg" />
+    <Content Include="site\images\events\warningIcon.png" />
+    <Content Include="site\payment-paypal.aspx" />
+    <Content Include="site\reset-password.aspx" />
+    <Content Include="site\ticket-history.aspx" />
+    <Content Include="site\venues\CA-location.png" />
+    <Content Include="site\venues\DKA-location.png" />
+    <Content Include="site\venues\DKG-location.png" />
+    <Content Include="site\venues\TARUMT-location-venue.png" />
+    <Content Include="admin\event-create.aspx" />
+    <Content Include="site\css\login.css" />
+    <Content Include="site\css\register.css" />
+    <Content Include="site\account-register.aspx" />
+    <Content Include="admin\billing.aspx" />
+    <Content Include="admin\event-venue-create.aspx" />
+    <Content Include="App_Data\table.mdf" />
+    <Content Include="App_Data\table_log.ldf">
+      <DependentUpon>table.mdf</DependentUpon>
+    </Content>
+    <Content Include="site\checkout.aspx" />
+    <Content Include="site\css\checkout.css" />
+    <Content Include="site\css\profile-update.css" />
+    <Content Include="site\css\forget-password.css" />
+    <Content Include="site\css\header.css" />
+    <Content Include="site\css\profile.css" />
+    <Content Include="site\account-profile-update.aspx" />
+    <Content Include="site\account-forget-password.aspx" />
+    <Content Include="site\css\payment-credit-card.css" />
+    <Content Include="site\css\payment-success.css" />
+    <Content Include="site\css\payment.css" />
+    <Content Include="site\js\accordions.js" />
+    <Content Include="site\js\bootstrap.min.js" />
+    <Content Include="site\js\custom.js" />
+    <Content Include="site\js\imgfix.min.js" />
+    <Content Include="site\js\jquery-2.1.0.min.js" />
+    <Content Include="site\js\jquery.counterup.min.js" />
+    <Content Include="site\js\mixitup.js" />
+    <Content Include="site\js\owl-carousel.js" />
+    <Content Include="site\js\popper.js" />
+    <Content Include="site\js\quantity.js" />
+    <Content Include="site\js\scrollreveal.min.js" />
+    <Content Include="site\js\waypoints.min.js" />
+    <Content Include="site\images\tng-ewallet.jpg" />
+    <Content Include="site\payment-credit-card.aspx" />
+    <Content Include="site\payment-success.aspx" />
+    <Content Include="site\payment-tng.aspx" />
+    <Content Include="site\payment.aspx" />
+    <Content Include="admin\css\core.css" />
+    <Content Include="admin\css\demo.css" />
+    <Content Include="admin\css\pages\page-account-settings.css" />
+    <Content Include="admin\css\pages\page-auth.css" />
+    <Content Include="admin\css\pages\page-icons.css" />
+    <Content Include="admin\css\pages\page-misc.css" />
+    <Content Include="admin\css\theme-default.css" />
+    <Content Include="admin\event-update.aspx" />
+    <Content Include="admin\event-index.aspx" />
+    <Content Include="admin\event-venue-index.aspx" />
+    <Content Include="admin\event-venue-update.aspx" />
+    <Content Include="admin\event-view.aspx" />
+    <Content Include="admin\fonts\boxicons.css" />
+    <Content Include="admin\fonts\boxicons\boxicons.svg" />
+    <Content Include="admin\images\avatars\1.png" />
+    <Content Include="admin\images\avatars\5.png" />
+    <Content Include="admin\images\avatars\6.png" />
+    <Content Include="admin\images\avatars\7.png" />
+    <Content Include="admin\images\backgrounds\18.jpg" />
+    <Content Include="admin\images\elements\1.jpg" />
+    <Content Include="admin\images\elements\11.jpg" />
+    <Content Include="admin\images\elements\12.jpg" />
+    <Content Include="admin\images\elements\13.jpg" />
+    <Content Include="admin\images\elements\17.jpg" />
+    <Content Include="admin\images\elements\18.jpg" />
+    <Content Include="admin\images\elements\19.jpg" />
+    <Content Include="admin\images\elements\2.jpg" />
+    <Content Include="admin\images\elements\20.jpg" />
+    <Content Include="admin\images\elements\3.jpg" />
+    <Content Include="admin\images\elements\4.jpg" />
+    <Content Include="admin\images\elements\5.jpg" />
+    <Content Include="admin\images\elements\7.jpg" />
+    <Content Include="admin\images\favicon\favicon.ico" />
+    <Content Include="admin\images\icons\brands\asana.png" />
+    <Content Include="admin\images\icons\brands\behance.png" />
+    <Content Include="admin\images\icons\brands\dribbble.png" />
+    <Content Include="admin\images\icons\brands\facebook.png" />
+    <Content Include="admin\images\icons\brands\github.png" />
+    <Content Include="admin\images\icons\brands\google.png" />
+    <Content Include="admin\images\icons\brands\instagram.png" />
+    <Content Include="admin\images\icons\brands\mailchimp.png" />
+    <Content Include="admin\images\icons\brands\slack.png" />
+    <Content Include="admin\images\icons\brands\twitter.png" />
+    <Content Include="admin\images\icons\unicons\cc-primary.png" />
+    <Content Include="admin\images\icons\unicons\cc-success.png" />
+    <Content Include="admin\images\icons\unicons\cc-warning.png" />
+    <Content Include="admin\images\icons\unicons\chart-success.png" />
+    <Content Include="admin\images\icons\unicons\chart.png" />
+    <Content Include="admin\images\icons\unicons\paypal.png" />
+    <Content Include="admin\images\icons\unicons\wallet-info.png" />
+    <Content Include="admin\images\icons\unicons\wallet.png" />
+    <Content Include="admin\images\illustration\girl-doing-yoga-light.png" />
+    <Content Include="admin\images\illustration\man-with-laptop-light.png" />
+    <Content Include="admin\images\illustration\page-misc-error-light.png" />
+    <Content Include="admin\images\layouts\layout-container-light.png" />
+    <Content Include="admin\images\layouts\layout-fluid-light.png" />
+    <Content Include="admin\images\layouts\layout-without-menu-light.png" />
+    <Content Include="admin\images\layouts\layout-without-navbar-light.png" />
+    <Content Include="site\payment-fpx.aspx" />
+    <Content Include="admin\index.aspx" />
+    <Content Include="site\about.aspx" />
+    <Content Include="site\css\bootstrap.min.css" />
+    <Content Include="site\css\font-awesome.css" />
+    <Content Include="site\css\owl-carousel.css" />
+    <Content Include="site\css\tooplate-artxibition.css" />
+    <Content Include="site\event-detail.aspx" />
+    <Content Include="site\fonts\flexslider-icon.svg" />
+    <Content Include="site\fonts\fontawesome-webfont.svg" />
+    <Content Include="site\fonts\slick.svg" />
+    <Content Include="site\images\about-image.jpg" />
+    <Content Include="site\images\about-map-image.jpg" />
+    <Content Include="site\images\about_bg.jpg" />
+    <Content Include="site\images\banner_bg.jpg" />
+    <Content Include="site\images\event-01.jpg" />
+    <Content Include="site\images\event-02.jpg" />
+    <Content Include="site\images\event-03.jpg" />
+    <Content Include="site\images\event-page-01.jpg" />
+    <Content Include="site\images\event-page-02.jpg" />
+    <Content Include="site\images\event-page-03.jpg" />
+    <Content Include="site\images\event-page-04.jpg" />
+    <Content Include="site\images\like-01.jpg" />
+    <Content Include="site\images\like-02.jpg" />
+    <Content Include="site\images\like-03.jpg" />
+    <Content Include="site\images\map-image.jpg" />
+    <Content Include="site\images\rent_venue_bg.jpg" />
+    <Content Include="site\images\show-events-01.jpg" />
+    <Content Include="site\images\show-events-02.jpg" />
+    <Content Include="site\images\show-events-03.jpg" />
+    <Content Include="site\images\show-events-04.jpg" />
+    <Content Include="site\images\shows_events_bg.jpg" />
+    <Content Include="site\images\ticket-01.jpg" />
+    <Content Include="site\images\ticket-02.jpg" />
+    <Content Include="site\images\ticket-03.jpg" />
+    <Content Include="site\images\ticket-04.jpg" />
+    <Content Include="site\images\ticket-05.jpg" />
+    <Content Include="site\images\ticket-06.jpg" />
+    <Content Include="site\images\ticket-details.jpg" />
+    <Content Include="site\images\venue-01.jpg" />
+    <Content Include="site\images\venue-02.jpg" />
+    <Content Include="site\images\venue-03.jpg" />
+    <Content Include="site\index.aspx" />
+    <Content Include="site\account-login.aspx" />
+    <Content Include="site\venue-rent.aspx" />
+    <Content Include="site\event-show.aspx" />
+    <Content Include="site\venues\TARUMT-location-index.png" />
+    <Content Include="site\ticket-detail.aspx" />
+    <Content Include="site\ticket.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="admin\js\bootstrap.js" />
+    <Content Include="admin\js\config.js" />
+    <Content Include="admin\js\dashboards-analytics.js" />
+    <Content Include="admin\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="admin\js\form-basic-inputs.js" />
+    <Content Include="admin\js\helpers.js" />
+    <Content Include="admin\js\main.js" />
+    <Content Include="admin\js\menu.js" />
+    <Content Include="admin\js\pages-account-settings-account.js" />
+    <Content Include="admin\js\ui-modals.js" />
+    <Content Include="admin\js\ui-popover.js" />
+    <Content Include="admin\js\ui-toasts.js" />
+    <Content Include="admin\libs\apex-charts\apex-charts.css" />
+    <Content Include="admin\libs\apex-charts\apexcharts.js" />
+    <Content Include="admin\libs\highlight\highlight-github.css" />
+    <Content Include="admin\libs\highlight\highlight.css" />
+    <Content Include="admin\libs\highlight\highlight.js" />
+    <Content Include="admin\libs\jquery\jquery.js" />
+    <Content Include="admin\libs\masonry\masonry.js" />
+    <Content Include="admin\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="admin\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="admin\libs\popper\popper.js" />
+    <Content Include="admin\newsletter-create.aspx" />
+    <Content Include="admin\newsletter-index.aspx" />
+    <Content Include="admin\newsletter-update.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\admin-access-error.aspx.cs">
+      <DependentUpon>admin-access-error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-access-error.aspx.designer.cs">
+      <DependentUpon>admin-access-error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin-forget-password.aspx.cs">
+      <DependentUpon>admin-forget-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-forget-password.aspx.designer.cs">
+      <DependentUpon>admin-forget-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin-login.aspx.cs">
+      <DependentUpon>admin-login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-login.aspx.designer.cs">
+      <DependentUpon>admin-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin-register.aspx.cs">
+      <DependentUpon>admin-register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-register.aspx.designer.cs">
+      <DependentUpon>admin-register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin-reset-password.aspx.cs">
+      <DependentUpon>admin-reset-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-reset-password.aspx.designer.cs">
+      <DependentUpon>admin-reset-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing-create.aspx.cs">
+      <DependentUpon>billing-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing-create.aspx.designer.cs">
+      <DependentUpon>billing-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing-payment-success.aspx.cs">
+      <DependentUpon>billing-payment-success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing-payment-success.aspx.designer.cs">
+      <DependentUpon>billing-payment-success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing-payment.aspx.cs">
+      <DependentUpon>billing-payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing-payment.aspx.designer.cs">
+      <DependentUpon>billing-payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing-update.aspx.cs">
+      <DependentUpon>billing-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing-update.aspx.designer.cs">
+      <DependentUpon>billing-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing-view.aspx.cs">
+      <DependentUpon>billing-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing-view.aspx.designer.cs">
+      <DependentUpon>billing-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\create-admin.aspx.cs">
+      <DependentUpon>create-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\create-admin.aspx.designer.cs">
+      <DependentUpon>create-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\create-customer.aspx.cs">
+      <DependentUpon>create-customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\create-customer.aspx.designer.cs">
+      <DependentUpon>create-customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer-update.aspx.cs">
+      <DependentUpon>customer-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer-update.aspx.designer.cs">
+      <DependentUpon>customer-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer-view.aspx.cs">
+      <DependentUpon>customer-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer-view.aspx.designer.cs">
+      <DependentUpon>customer-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\organization-create.aspx.cs">
+      <DependentUpon>organization-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\organization-create.aspx.designer.cs">
+      <DependentUpon>organization-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer-list.aspx.cs">
+      <DependentUpon>customer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer-list.aspx.designer.cs">
+      <DependentUpon>customer-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit-admin-profile.aspx.cs">
+      <DependentUpon>edit-admin-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-admin-profile.aspx.designer.cs">
+      <DependentUpon>edit-admin-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit-customer-profile.aspx.cs">
+      <DependentUpon>edit-customer-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-customer-profile.aspx.designer.cs">
+      <DependentUpon>edit-customer-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit-organization-profile.aspx.cs">
+      <DependentUpon>edit-organization-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-organization-profile.aspx.designer.cs">
+      <DependentUpon>edit-organization-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-venue-view.aspx.cs">
+      <DependentUpon>event-venue-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-venue-view.aspx.designer.cs">
+      <DependentUpon>event-venue-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\organization-index.aspx.cs">
+      <DependentUpon>organization-index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\organization-index.aspx.designer.cs">
+      <DependentUpon>organization-index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newsletter-view.aspx.cs">
+      <DependentUpon>newsletter-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newsletter-view.aspx.designer.cs">
+      <DependentUpon>newsletter-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\organization-setting.aspx.cs">
+      <DependentUpon>organization-setting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\organization-setting.aspx.designer.cs">
+      <DependentUpon>organization-setting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\organization-update.aspx.cs">
+      <DependentUpon>organization-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\organization-update.aspx.designer.cs">
+      <DependentUpon>organization-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\organization-view.aspx.cs">
+      <DependentUpon>organization-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\organization-view.aspx.designer.cs">
+      <DependentUpon>organization-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\report-sale.aspx.cs">
+      <DependentUpon>report-sale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\report-sale.aspx.designer.cs">
+      <DependentUpon>report-sale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="controller\custDA.cs" />
+    <Compile Include="controller\ImageHandler.cs" />
+    <Compile Include="controller\orgDA.cs" />
+    <Compile Include="Security.cs" />
+    <Compile Include="controller\Account.cs" />
+    <Compile Include="controller\Bill.cs" />
+    <Compile Include="controller\cust_orderDA.cs" />
+    <Compile Include="controller\eventDA.cs" />
+    <Compile Include="controller\event_venueDA.cs" />
+    <Compile Include="controller\order_itemDA.cs" />
+    <Compile Include="controller\ticketDA.cs" />
+    <Compile Include="controller\venueDA.cs" />
+    <Compile Include="error-page.aspx.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error-page.aspx.designer.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="modal\admin.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\billing.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\customer.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\customer_payment.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\cust_order.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\event-magnet-modal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>event-magnet-modal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\event-magnet-modal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\event-magnet-modal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>event-magnet-modal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="modal\event.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\event_venue.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\newsletter.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\order_item.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\organization.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\organization_admin.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\organization_payment.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\ticket.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="modal\venue.cs">
+      <DependentUpon>event-magnet-modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-profile-confirm.aspx.cs">
+      <DependentUpon>account-profile-confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-profile-confirm.aspx.designer.cs">
+      <DependentUpon>account-profile-confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-create.aspx.cs">
+      <DependentUpon>event-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-create.aspx.designer.cs">
+      <DependentUpon>event-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-profile.aspx.cs">
+      <DependentUpon>account-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-profile.aspx.designer.cs">
+      <DependentUpon>account-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\captcha.aspx.cs">
+      <DependentUpon>captcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\captcha.aspx.designer.cs">
+      <DependentUpon>captcha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\event-shows-val.aspx.cs">
+      <DependentUpon>event-shows-val.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\event-shows-val.aspx.designer.cs">
+      <DependentUpon>event-shows-val.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment-paypal.aspx.cs">
+      <DependentUpon>payment-paypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment-paypal.aspx.designer.cs">
+      <DependentUpon>payment-paypal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\reset-password.aspx.cs">
+      <DependentUpon>reset-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\reset-password.aspx.designer.cs">
+      <DependentUpon>reset-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\ticket-history.aspx.cs">
+      <DependentUpon>ticket-history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\ticket-history.aspx.designer.cs">
+      <DependentUpon>ticket-history.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-register.aspx.cs">
+      <DependentUpon>account-register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-register.aspx.designer.cs">
+      <DependentUpon>account-register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\billing.aspx.cs">
+      <DependentUpon>billing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\billing.aspx.designer.cs">
+      <DependentUpon>billing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-venue-create.aspx.cs">
+      <DependentUpon>event-venue-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-venue-create.aspx.designer.cs">
+      <DependentUpon>event-venue-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-profile-update.aspx.cs">
+      <DependentUpon>account-profile-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-profile-update.aspx.designer.cs">
+      <DependentUpon>account-profile-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-forget-password.aspx.cs">
+      <DependentUpon>account-forget-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-forget-password.aspx.designer.cs">
+      <DependentUpon>account-forget-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment-credit-card.aspx.cs">
+      <DependentUpon>payment-credit-card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment-credit-card.aspx.designer.cs">
+      <DependentUpon>payment-credit-card.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment-success.aspx.cs">
+      <DependentUpon>payment-success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment-success.aspx.designer.cs">
+      <DependentUpon>payment-success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment-tng.aspx.cs">
+      <DependentUpon>payment-tng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment-tng.aspx.designer.cs">
+      <DependentUpon>payment-tng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\payment-fpx.aspx.cs">
+      <DependentUpon>payment-fpx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\payment-fpx.aspx.designer.cs">
+      <DependentUpon>payment-fpx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-update.aspx.cs">
+      <DependentUpon>event-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-update.aspx.designer.cs">
+      <DependentUpon>event-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-index.aspx.cs">
+      <DependentUpon>event-index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-index.aspx.designer.cs">
+      <DependentUpon>event-index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-venue-index.aspx.cs">
+      <DependentUpon>event-venue-index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-venue-index.aspx.designer.cs">
+      <DependentUpon>event-venue-index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-venue-update.aspx.cs">
+      <DependentUpon>event-venue-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-venue-update.aspx.designer.cs">
+      <DependentUpon>event-venue-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\event-view.aspx.cs">
+      <DependentUpon>event-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\event-view.aspx.designer.cs">
+      <DependentUpon>event-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+    </Compile>
+    <Compile Include="site\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\event-detail.aspx.cs">
+      <DependentUpon>event-detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\event-detail.aspx.designer.cs">
+      <DependentUpon>event-detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\account-login.aspx.cs">
+      <DependentUpon>account-login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\account-login.aspx.designer.cs">
+      <DependentUpon>account-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\venue-rent.aspx.cs">
+      <DependentUpon>venue-rent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\venue-rent.aspx.designer.cs">
+      <DependentUpon>venue-rent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\event-show.aspx.cs">
+      <DependentUpon>event-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\event-show.aspx.designer.cs">
+      <DependentUpon>event-show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\site.Master.cs">
+      <DependentUpon>site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\site.Master.designer.cs">
+      <DependentUpon>site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\ticket-detail.aspx.cs">
+      <DependentUpon>ticket-detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\ticket-detail.aspx.designer.cs">
+      <DependentUpon>ticket-detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\ticket.aspx.cs">
+      <DependentUpon>ticket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\ticket.aspx.designer.cs">
+      <DependentUpon>ticket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newsletter-create.aspx.cs">
+      <DependentUpon>newsletter-create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newsletter-create.aspx.designer.cs">
+      <DependentUpon>newsletter-create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newsletter-index.aspx.cs">
+      <DependentUpon>newsletter-index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newsletter-index.aspx.designer.cs">
+      <DependentUpon>newsletter-index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newsletter-update.aspx.cs">
+      <DependentUpon>newsletter-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newsletter-update.aspx.designer.cs">
+      <DependentUpon>newsletter-update.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin.Master" />
+    <EntityDeploy Include="modal\event-magnet-modal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>event-magnet-modal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="modal\event-magnet-modal.edmx.diagram">
+      <DependentUpon>event-magnet-modal.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="site\site.Master" />
+    <Content Include="site\fonts\Flaticon.woff" />
+    <Content Include="site\fonts\flexslider-icon.eot" />
+    <Content Include="site\fonts\flexslider-icon.ttf" />
+    <Content Include="site\fonts\flexslider-icon.woff" />
+    <Content Include="site\fonts\fontawesome-webfont.eot" />
+    <Content Include="site\fonts\fontawesome-webfont.ttf" />
+    <Content Include="site\fonts\fontawesome-webfont.woff" />
+    <Content Include="site\fonts\fontawesome-webfont.woff2" />
+    <Content Include="site\fonts\FontAwesome.otf" />
+    <Content Include="site\fonts\slick.eot" />
+    <Content Include="site\fonts\slick.ttf" />
+    <Content Include="site\fonts\slick.woff" />
+    <Content Include="site\site.sitemap" />
+    <None Include="Properties\PublishProfiles\EventMagnetJimmy - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="admin\fonts\boxicons.scss" />
+    <Content Include="admin\fonts\boxicons\boxicons.eot" />
+    <Content Include="admin\fonts\boxicons\boxicons.ttf" />
+    <Content Include="admin\fonts\boxicons\boxicons.woff" />
+    <Content Include="admin\fonts\boxicons\boxicons.woff2" />
+    <Content Include="admin\libs\perfect-scrollbar\perfect-scrollbar.scss" />
+    <Content Include="admin\libs\perfect-scrollbar\apex-charts.scss" />
+    <Content Include="admin\libs\highlight\highlight-github.scss" />
+    <Content Include="admin\libs\highlight\highlight.scss" />
+    <Content Include="admin\scss\core.scss" />
+    <Content Include="admin\scss\theme-default.scss" />
+    <Content Include="admin\scss\_bootstrap-extended.scss" />
+    <Content Include="admin\scss\_bootstrap.scss" />
+    <Content Include="admin\scss\_colors.scss" />
+    <Content Include="admin\scss\_components.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_floating-labels.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_form-control.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_form-range.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_form-select.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_input-group.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_labels.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\forms\_validation.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_alert.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_badge.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_buttons.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_caret.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_dropdown.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_forms.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_list-group.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_misc.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_navs.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_pagination.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_progress.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_table-variants.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\mixins\_toasts.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_accordion.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_alert.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_badge.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_breadcrumb.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_button-group.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_buttons.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_card.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_carousel.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_close.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_dropdown.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_forms.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_functions.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_include.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_list-group.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_mixins.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_modal.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_nav.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_navbar.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_offcanvas.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_pagination.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_popover.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_progress.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_reboot.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_root.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_spinners.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_tables.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_toasts.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_tooltip.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_type.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_utilities-ltr.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_utilities.scss" />
+    <Content Include="admin\scss\_bootstrap-extended\_variables.scss" />
+    <Content Include="admin\scss\_components\mixins\_app-brand.scss" />
+    <Content Include="admin\scss\_components\mixins\_avatar.scss" />
+    <Content Include="admin\scss\_components\mixins\_footer.scss" />
+    <Content Include="admin\scss\_components\mixins\_menu.scss" />
+    <Content Include="admin\scss\_components\mixins\_misc.scss" />
+    <Content Include="admin\scss\_components\mixins\_navbar.scss" />
+    <Content Include="admin\scss\_components\mixins\_text-divider.scss" />
+    <Content Include="admin\scss\_components\_app-brand.scss" />
+    <Content Include="admin\scss\_components\_avatar.scss" />
+    <Content Include="admin\scss\_components\_base.scss" />
+    <Content Include="admin\scss\_components\_common.scss" />
+    <Content Include="admin\scss\_components\_footer.scss" />
+    <Content Include="admin\scss\_components\_include.scss" />
+    <Content Include="admin\scss\_components\_layout.scss" />
+    <Content Include="admin\scss\_components\_menu.scss" />
+    <Content Include="admin\scss\_components\_mixins.scss" />
+    <Content Include="admin\scss\_components\_text-divider.scss" />
+    <Content Include="admin\scss\_components\_variables.scss" />
+    <Content Include="admin\scss\_custom_variables\_bootstrap-extended.scss" />
+    <Content Include="admin\scss\_custom_variables\_components.scss" />
+    <Content Include="admin\scss\_custom_variables\_libs.scss" />
+    <Content Include="admin\scss\_custom_variables\_pages.scss" />
+    <Content Include="admin\scss\_custom_variables\_support.scss" />
+    <Content Include="admin\scss\_theme\_common.scss" />
+    <Content Include="admin\scss\_theme\_theme.scss" />
+    <Content Include="admin\scss\pages\page-account-settings.scss" />
+    <Content Include="admin\scss\pages\page-auth.scss" />
+    <Content Include="admin\scss\pages\page-icons.scss" />
+    <Content Include="admin\scss\pages\page-misc.scss" />
+    <Content Include="admin\admin.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\DataTables\" />
+    <Folder Include="admin\images\events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52619</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44325/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

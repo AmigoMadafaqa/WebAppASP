@@ -1,0 +1,33 @@
+﻿#profile {
+    width: 60%;
+    margin: 10px auto;
+    content: "";
+    display: table;
+    clear: both;
+    background-color: lightgray;
+    box-shadow: 3px 3px 5px black;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.info tr td {
+    padding: 5px;
+    width: 50%;
+}
+
+tr, td {
+    border: 1px solid grey;
+}
+
+.editBtn {
+    width: 20%;
+    border-radius: 20px;
+}

@@ -1,0 +1,470 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="EventMagnet.admin.admin" %>
+<!DOCTYPE html>
+<html
+   lang="en"
+   class="light-style layout-menu-fixed"
+   >
+   <head runat="server">
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+         />
+      <title>EVEMNT - Admin</title>
+      <meta name="description" content="" />
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="images/icons/evemagnet_icon.png" />
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+         rel="stylesheet"
+         />
+      <!-- Icons. Uncomment required icon fonts -->
+      <link rel="stylesheet" href="fonts/boxicons.css" />
+      <!-- Core CSS -->
+      <link rel="stylesheet" href="css/core.css" class="template-customizer-core-css" />
+      <link rel="stylesheet" href="css/theme-default.css" class="template-customizer-theme-css" />
+      <link rel="stylesheet" href="css/demo.css" />
+      <!-- Vendors CSS -->
+      <link rel="stylesheet" href="libs/perfect-scrollbar/perfect-scrollbar.css" />
+      <link rel="stylesheet" href="libs/apex-charts/apex-charts.css" />
+      <!-- Page CSS -->
+      <!-- Helpers -->
+      <script src="js/helpers.js"></script>
+      <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the head section -->
+      <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+      <script src="js/config.js"></script>
+
+       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+       <!-- for enable notification -->
+       <!--<script src="js/desktop-noti-API.js"></script>-->
+       <script>
+           //to get the permission for desktop notification
+           if ('Notification' in window) {
+               {
+                   Notification.requestPermission().then(permission => {
+                       {
+                           if (permission === 'granted') {
+                               {
+                                   // User has granted permission for notifications
+                                   console.log('Notification permission granted.');
+                               }
+                           }
+                           else if (permission === 'denied') {
+                               {
+                                   // User has denied permission for notifications
+                                   console.warn('Notification permission denied.');
+                               }
+                           }
+                           else if (permission === 'default') {
+                               {
+                                   // The user hasn't decided yet; the notification prompt is still pending
+                                   console.log('Notification permission prompt is pending.');
+                               }
+                           }
+                       }
+                   });
+               }
+           } else {
+               {
+                   // Browser does not support the Notification API
+                   console.error('This browser does not support notifications.');
+               }
+           }
+       </script>
+
+<style>
+    /* Reset default list styles */
+    .menu-inner, .level1, .level2, .level3 {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Vertical menu styling */
+    .menu-inner {
+        display: flex;
+        flex-direction: column;
+        background-color: white; /* Background color for the menu */
+    }
+
+    .level1 {
+        margin-bottom: 0px; /* Add margin between top-level items */
+    }
+
+    /* Basic styling for menu items */
+    .level1 > li,
+    .level2 > li,
+    .level3 > li {
+        margin-bottom: 2px; /* Add margin between items */
+    }
+
+    .level1 a, .level2 a, .level3 a {
+        text-decoration: none;
+        color: rgb(97, 129, 135); /* Text color for menu items */
+        padding: 8px 15px; /* Adjust padding for better spacing */
+        display: block;
+        transition: background-color 0.3s; /* Add a smooth transition effect */
+        border-radius:10px;
+        margin-left:30px;
+    }
+
+    /* Hover effect */
+    .level1 a:hover, .level2 a:hover, .level3 a:hover {
+        background-color: rgb(205, 206, 250); /* Change background color on hover */
+        color:rgb(9, 13, 237);
+    }
+
+    /* Submenu styling */
+    .level2, .level3 {
+        padding-left: 15px; /* Adjust indentation for submenus */
+    }
+
+</style>
+
+
+      <asp:ContentPlaceHolder ID="head" runat="server">
+      </asp:ContentPlaceHolder>
+   </head>
+   <body>
+      <form id="form1" runat="server" enctype="multipart/form-data">
+         <!-- Layout wrapper -->
+         <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+               <!-- Menu -->
+
+               <!-- / Menu -->
+<!-- ASP menu-->
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a href="index.aspx" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <!-- Your SVG logo code here -->
+                <img src="images/icons/evemagnet_icon.png" width="58"/>
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform:capitalize">EVEMNT</span>
+        </a>
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+    <div class="menu-inner-shadow"></div>
+    <ul class="menu-inner py-1">
+        <!-- Use the SiteMapDataSource to generate the dynamic menu items -->
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="AdminSiteMapProvider" />
+
+
+        <!-- Use the asp:Menu control to generate the dynamic menu -->
+
+            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" CssClass="menu-inner" StaticDisplayLevels="3" MaximumDynamicDisplayLevels="3" RenderingMode="List">
+                <DynamicHoverStyle CssClass="hover" />
+                <DynamicMenuItemStyle CssClass="menu-item" />
+                <DynamicMenuStyle CssClass="menu-sub" />
+                <StaticMenuItemStyle CssClass="menu-item" />
+                <StaticSelectedStyle CssClass="selected" />
+                <StaticHoverStyle CssClass="hover" />
+
+                <StaticMenuStyle CssClass="level1" />
+                <DynamicMenuStyle CssClass="level2" />
+                <DynamicMenuStyle CssClass="level3" />
+            </asp:Menu>
+
+    </ul>
+</aside>
+<!--/ ASP menu-->
+               <!-- Layout container -->
+               <div class="layout-page">
+                  <!-- Navbar -->
+                  <nav
+                     class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                     id="layout-navbar"
+                     >
+                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                        <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                     </div>
+                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                         <%--<span><%= organizationName %></span>--%>
+                         
+                         <asp:SqlDataSource ID="SqlOrgSelection" runat="server" ConnectionString="<%$ ConnectionStrings:eventMagnetConnectionString %>" SelectCommand="SELECT org.name + ' (ID : ' + CAST(org.id AS varchar) + ')' AS name, org.id AS id FROM organization AS org INNER JOIN organization_admin AS orgAdm ON org.id = orgAdm.organization_id WHERE (orgAdm.admin_id = @admin_id) AND (org.status = 1) AND (orgAdm.status = 1)">
+                             <SelectParameters>
+                                 <asp:ControlParameter ControlID="hfCustId" Name="admin_id" PropertyName="Value" DefaultValue="1" />
+                             </SelectParameters>
+                         </asp:SqlDataSource>                         
+                         <asp:HiddenField ID="hfCustId" Value="" runat="server" />
+                         <div class="col-5" style="display:flex;align-items:center" >
+                             <span>Organization&nbsp;:&nbsp;&nbsp;</span>
+                             <asp:DropDownList ID="ddlOrgSelection" runat="server" DataSourceID="SqlOrgSelection" DataTextField="name" DataValueField="id" OnSelectedIndexChanged="ddlOrgSelection_SelectedIndexChanged" AppendDataBoundItems="True" AutoPostBack="True" CssClass="form-select"></asp:DropDownList>
+                         </div>
+
+                        <!-- Searchs
+                                 class="form-control border-0 shadow-none"
+                                 placeholder="Search..."
+                                 aria-label="Search..."
+                                 />
+                           </div>
+                        </div> -->
+                        <!-- /Search -->
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                           <!-- Place this tag where you want the button to render. -->
+
+                           <!-- User -->
+                           <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                              <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                 <div class="avatar avatar-online">
+                                     <asp:Image ID="ImgUpload" runat="server" class="w-px-40 h-auto rounded-circle"/>
+                                 </div>
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                 <li>
+                                    <a class="dropdown-item" href="#">
+                                       <div class="d-flex">
+                                          <div class="flex-shrink-0 me-3">
+                                             <div class="avatar avatar-online">
+                                                <asp:Image ID="ddlImage" runat="server" class="w-px-40 h-auto rounded-circle"/>
+                                             </div>
+                                          </div>
+                                          <div class="flex-grow-1">
+                                             <span class="fw-semibold d-block"><%= username %></span>
+                                             <small class="text-muted"><%= position %></small>
+                                          </div>
+                                       </div>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <div class="dropdown-divider"></div>
+                                 </li>
+                                 <li>
+                                    <a class="dropdown-item" href="edit-admin-profile.aspx">
+                                    <i class="bx bx-user me-2"></i>
+                                    <span class="align-middle">My Profile</span>
+                                    </a>
+                                 </li>
+                                  <!--
+                                 <li>
+                                    <a class="dropdown-item" href="#">
+                                    <i class="bx bx-cog me-2"></i>
+                                    <span class="align-middle">Settings</span>
+                                    </a>
+                                 </li>
+                                   
+                                 <li>
+                                    <a class="dropdown-item" href="#">
+                                    <span class="d-flex align-items-center align-middle">
+                                    <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                                    <span class="flex-grow-1 align-middle">Billing</span>
+                                    <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                                    </span>
+                                    </a>
+                                 </li>-->
+                                 <li>
+                                    <div class="dropdown-divider"></div>
+                                 </li>
+                                 <li>
+                                    <a class="dropdown-item" href="admin-login.aspx?logout=1">
+                                    <i class="bx bx-power-off me-2"></i>
+                                    <span class="align-middle">Log Out</span>
+                                    </a>
+                                 </li>
+                              </ul>
+                           </li>
+                           <!--/ User -->
+                        </ul>
+                     </div>
+                  </nav>
+
+                  <!-- / Navbar -->
+                  <!-- Content wrapper -->
+                  <div class="content-wrapper">
+                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                     </asp:ContentPlaceHolder>
+                  </div>
+                  <!-- / Content wrapper -->
+                   <!-- Footer -->
+                        <footer class="content-footer footer bg-footer-theme">
+                          <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                              ©
+                              <script>
+                                  document.write(new Date().getFullYear());
+                              </script>
+                              , made with ❤️ by
+                              <a href="https://tarc.edu.my/" target="_blank" class="footer-link fw-bolder">TARUMT Students , KCTan, JimmyWong, JunQuan, Edward Chin </a>
+                            </div>
+                            <div>
+                                <!---
+                              <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
+                              <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
+
+                              <a
+                                href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                                target="_blank"
+                                class="footer-link me-4"
+                                >Documentation</a
+                              >
+
+                              <a
+                                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                                target="_blank"
+                                class="footer-link me-4"
+                                >Support</a
+                              >-->
+                            </div>
+                          </div>
+                        </footer>
+                        <!-- / Footer -->
+
+
+               </div>
+               <!-- / Layout page -->
+            </div>
+            <!-- Overlay -->
+            <div class="layout-overlay layout-menu-toggle">
+            </div>
+         </div>
+         <!-- / Layout wrapper -->
+
+<!-- Modal Prompter -->
+<div class="modal fade" id="modalPrompter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete it ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Modal Prompter -->
+
+      </form>
+      <!-- Core JS -->
+      <!-- build:js assets/vendor/js/core.js -->
+      <script src="libs/jquery/jquery.js"></script>
+      <script src="libs/popper/popper.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+      <script src="js/menu.js"></script>
+      <!-- endbuild -->
+      <!-- Vendors JS -->
+      <script src="libs/apex-charts/apexcharts.js"></script>
+      <!-- Main JS -->
+      <script src="js/main.js"></script>
+      <!-- Page JS -->
+      <script src="js/dashboards-analytics.js"></script>
+      <!-- Place this tag in your head or just before your close body tag. -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Add header above each level 2 submenu
+                $('.level2').each(function (index) {
+                    // Skip the first two items 
+                    if (index >= 2) {
+                        $(this).before('<li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>');
+                    }
+                    if (index == 1) {
+                        $(this).before('<li class="menu-header small text-uppercase"><span class="menu-header-text"></span></li>');
+                    }
+                });
+
+                $('.menu-header-text').eq(0).text('Organization'); 
+                $('.menu-header-text').eq(1).text('Participant'); 
+                $('.menu-header-text').eq(2).text('Event & Ticketing');
+                $('.menu-header-text').eq(3).text('Venue');
+                $('.menu-header-text').eq(4).text('Billing');
+                $('.menu-header-text').eq(5).text('Newsletter');
+            });
+        </script>
+
+       <script>
+           //Modal Prompter
+           var modal = new bootstrap.Modal(document.getElementById('modalPrompter'));
+           var confirmation = false;
+
+           var condition = confirmation;
+
+           // Open the modal if the condition is true
+           if (condition) {
+               modal.show();
+           }
+
+           
+           function displaySelectedImage(input) {
+               var selectedImage = document.getElementById('selectedImage');
+
+               if (input.files && input.files[0]) {
+                   var reader = new FileReader();
+
+                   reader.onload = function (e) {
+                       selectedImage.src = e.target.result;
+                       selectedImage.classList.remove('d-none'); // Display the image
+                       selectedImage.classList.add('rounded', 'border', 'p-2'); // Add border and padding
+                   };
+
+                   reader.readAsDataURL(input.files[0]);
+               } else {
+                   selectedImage.src = '';
+                   selectedImage.classList.add('d-none'); // Hide the image
+                   selectedImage.classList.remove('rounded', 'border', 'p-2'); // Remove border and padding
+               }
+           }
+           // Class definition
+
+           var KTBootstrapTimepicker = function () {
+
+               // Private functions
+               var demos = function () {
+                   // minimum setup
+                   $('#kt_timepicker_1, #kt_timepicker_1_modal').timepicker();
+
+                   // minimum setup
+                   $('#kt_timepicker_2, #kt_timepicker_2_modal').timepicker({
+                       minuteStep: 1,
+                       defaultTime: '',
+                       showSeconds: true,
+                       showMeridian: false,
+                       snapToStep: true
+                   });
+
+                   // default time
+                   $('#kt_timepicker_3, #kt_timepicker_3_modal').timepicker({
+                       defaultTime: '11:45:20 AM',
+                       minuteStep: 1,
+                       showSeconds: true,
+                       showMeridian: true
+                   });
+
+                   // default time
+                   $('#kt_timepicker_4, #kt_timepicker_4_modal').timepicker({
+                       defaultTime: '10:30:20 AM',
+                       minuteStep: 1,
+                       showSeconds: true,
+                       showMeridian: true
+                   });
+               }
+
+               return {
+                   // public functions
+                   init: function () {
+                       demos();
+                   }
+               };
+           }();
+
+           jQuery(document).ready(function () {
+               KTBootstrapTimepicker.init();
+           });
+       </script>
+   </body>
+</html>

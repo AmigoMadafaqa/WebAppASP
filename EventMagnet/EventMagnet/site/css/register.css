@@ -1,0 +1,50 @@
+﻿h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+#registerPage {
+    background-color: lightcyan;
+    height: 100%;
+    border: 3px solid grey;
+    width: 40%;
+    margin: 10px auto;
+    content: "";
+    display: table;
+    clear: both;
+    padding:20px;    
+}
+
+button {
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.regBtn {
+    border-color: transparent;
+    width: 40%;
+    font-weight: bold;
+    background-color: aquamarine;
+    color: black;
+    border-radius: 25px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.regBtn:hover {
+    opacity: 0.6;
+}
+
+.loginLink {
+    text-align:center
+}
